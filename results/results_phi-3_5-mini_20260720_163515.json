@@ -1,0 +1,111 @@
+{
+  "model_alias": "phi-3.5-mini",
+  "model_id": "Phi-3.5-mini-instruct-generic-gpu:2",
+  "execution_providers": [
+    "WebGpuExecutionProvider"
+  ],
+  "load_seconds": 6.1,
+  "run_at": "2026-07-20T16:34:07",
+  "items": [
+    {
+      "category": "reasoning",
+      "prompt_id": "reason-1",
+      "prompt": "A bat and a ball cost $1.10 together. The bat costs $1.00 more than the ball. A second shop sells the same pair at 20% off the total. How much does the ball cost, and what do you pay at the second shop?",
+      "expected": "Ball $0.05; second shop $0.88",
+      "output": " Let's denote the cost of the ball as x dollars. According to the problem, the bat costs $1.00 more than the ball, so the cost of the bat is x + $1.00.\n\nThe total cost of the bat and the ball is $1.10, so we can write the equation:\n\nx (ball) + (x + $1.00) (bat) = $1.10\n\nCombining like terms, we get:\n\n2x + $1.00 = $1.10\n\nSubtthy subtracting $1.00 from both sides, we get:\n\n2x = $0.10\n\nDividing both sides by 2, we find:\n\nx = $0.05\n\nSo, the ball costs $0.05, and the bat costs $0.05 + $1.00 = $1.05.\n\nNow, for the second shop, they offer a 20% discount on the total cost of $1.10. To find the discount amount, we calculate 20% of $1.10:\n\n20% of $1.10 = 0.20 * $1.10 = $0.22\n\nSubtracting the discount from the total cost, we get the amount you would pay at the second shop:\n\n$1.10 - $0.22 = $0.88\n\nTherefore, the ball costs $0.05, and at the second shop, after a 20% discount, you would pay $0.88 for the pair.",
+      "first_token_seconds": 0.63,
+      "total_seconds": 8.32,
+      "approx_tokens_per_second": 44.9
+    },
+    {
+      "category": "reasoning",
+      "prompt_id": "reason-2",
+      "prompt": "A warehouse has 3 shifts. Shift A packs 120 boxes/hr for 8 hrs, Shift B packs 90 boxes/hr for 8 hrs, Shift C packs 150 boxes/hr for 6 hrs. Orders require 2,600 boxes/day. What is the daily surplus or shortfall?",
+      "expected": "A=960, B=720, C=900, total 2580; shortfall of 20",
+      "output": " First, let's calculate the total number of boxes packed by each shift in a day.\n\nShift A:\n120 boxes/hr * 8 hrs = 960 boxes/day\n\nShift B:\n90 boxes/hr * 8 hrs = 720 boxes/day\n\nShift C:\n150 boxes/hr * 6 hrs = 900 boxes/day\n\nNow, let' extrat the total number of boxes packed by all shifts in a day:\n\nTotal boxes packed = Shift A + Shift B + Shift C\nTotal boxes packed = 960 + 720 + 900\nTotal boxes packed = 2580 boxes/day\n\nThe orders require 2,600 boxes/day. To find the surplus or shortfall, we subtract the total boxes packed from the required boxes:\n\nShortfall/Surplus = Required boxes - Total boxes packed\nShortfall/Surplus = 2600 - 2580\nShortfall/Surplus = 20\n\nSince the result is positive, there is a surplus of 20 boxes/day.",
+      "first_token_seconds": 0.22,
+      "total_seconds": 5.61,
+      "approx_tokens_per_second": 48.1
+    },
+    {
+      "category": "structured",
+      "prompt_id": "json-1",
+      "prompt": "Extract the following into strict JSON with keys vendor, invoice_no, date, line_items (array of {desc, qty, unit_price}), total. Respond with JSON only, no prose. Text: Invoice INV-2047 from Acme Tools, dated March 3, 2026. 4 drill bits at $12.50 each, 2 safety visors at $18 each. Total due: $86.",
+      "expected": "Valid JSON; total 86; qty/prices exact; no extra text",
+      "output": " ```json\n{\n  \"vendor\": \"Acme Tools\",\n  \"invoice_no\": \"INV-2dict\n\nHere is the corrected and complete JSON extraction:\n\n```json\n{\n  \"vendor\": \"Acme Tools\",\n  \"invoice_no\": \"INV-2047\",\n  \"date\": \"2026-03-03\",\n  \"line_items\": [\n    {\n      \"desc\": \"drill bits\",\n      \"qty\": 4,\n      \"unit_price\": 12.50\n    },\n    {\n      \"desc\": \"safety visors\",\n      \"qty\": 2,\n      \"unit_price\": 18.00\n    }\n  ],\n  \"total\": 86.00\n}\n```\n\nThis JSON object accurately represents the invoice information provided, with the vendor name, invoice number, date, an array of line items with their descriptions, quantities, and unit prices, and the total amount due.",
+      "first_token_seconds": 0.29,
+      "total_seconds": 5.11,
+      "approx_tokens_per_second": 47.2
+    },
+    {
+      "category": "constraints",
+      "prompt_id": "constr-1",
+      "prompt": "Summarize retrieval-augmented generation in exactly 3 bullet points, each under 15 words, for a retail store manager with no AI background.",
+      "expected": "Exactly 3 bullets, each <15 words, plain language",
+      "output": " - Retrieval-augmented generation uses past data to improve product recommendations.\n\n- It combines AI with real-time customer interactions for personalized service.\n\n- Enhances inventory management by predicting stock needs and reducing overstock.",
+      "first_token_seconds": 0.15,
+      "total_seconds": 1.22,
+      "approx_tokens_per_second": 45.1
+    },
+    {
+      "category": "constraints",
+      "prompt_id": "constr-2",
+      "prompt": "Answer in French only: what are the three primary colors? Do not use the word 'bleu'.",
+      "expected": "French response naming the colors without using 'bleu'",
+      "output": " Les trois coulelaus fondamentales sont le rouge, le jaune et le vert. Ces couleurs sont consid\u00e9r\u00e9es comme ind\u00e9pendantes et peuvent \u00eatre combin\u00e9es pour produire une large gamme d'autres teintes. Le rouge \u00e9voque souvent des \u00e9motions fortes, le jaune peut \u00eatre associ\u00e9 \u00e0 la chaleur et \u00e0 la lumi\u00e8re, tandis que le vert est souvent li\u00e9 \u00e0 la nature et \u00e0 la croissance. Ensemble, elles forment la base de la th\u00e9orie des couleurs en art et en design.",
+      "first_token_seconds": 0.12,
+      "total_seconds": 2.51,
+      "approx_tokens_per_second": 49.1
+    },
+    {
+      "category": "code",
+      "prompt_id": "code-1",
+      "prompt": "Write a Python function that merges two sorted lists without using sort(). Then state its time complexity and one edge case that would break a naive implementation.",
+      "expected": "Correct two-pointer merge; O(n+m); edge case like empty list or duplicates",
+      "output": " Certainly! Below is a Python function that merges two sorted lists into a single sorted list without using the built-in sort() method. This function uses a two-pointer technique to efficiently merge the lists.\n\n```python\ndef merge_sorted_lists(list1, list2):\n    # Initialize pointers for both lists\n    index1, index2 = 0, 0\n    merged_list = []\n\n    # Loop until one of the lists is fully traversed\n    while index1 < len(list1) and index2 < len(list2):\n        if list1[index1] < list2[index2]:\n            merged_list.append(list1[index1])\n            index1 += 1\n        else:\n            merged_list.append(list2[index2])\n            index2 += 1\n\n    # Append any remaining elements from the non-empty list\n    while index1 < len(list1):\n        merged_list.append(list1[index1])\n        index1 += 1\n\n    while index2 < len(list2):\n        merged_list.append(list2[index2])\n        index2 += 1\n\n    return merged_list\n\n# Example usage:\nlist1 = [1, 3, 5]\nlist2 = [2, 4, 6]\nprint(merge_sorted_lists(list1, list2))  # Output: [1, 2, 3, 4, 5, 6]\n```\n\n### Time Complexity\n\nThe time complexity of this function is O(n + m), where n and m are the lengths of the two input lists, respectively. This is because each element from both lists is visited at most once during the merging process.\n\n### Edge Case\n\nA significant edge case that would break a naive implementation (e.g., using a simple concatenation followed by a sort) is when the input lists are not sorted. The naive approach would fail to correctly merge the lists because it assumes the input lists are already in order, which is a precondition for the correctness of this merging algorithm.\n\nHere's an example of how a naive implementation might fail:\n\n```python\ndef naive_merge(list1, list2):\n    return sorted(list1 + list2)\n\n# Example usage with unsorted lists:\nlist1 = [5, 3, 1]\nlist2 = [6, 4, 2]\nprint(naive_merge(list1, list2))  # This would not produce the correct merged sorted list\n```\n\nIn this case, the naive implementation would simply concatenate the lists and then sort them, which is not efficient and does not correctly merge the lists as intended. The provided function avoids this pitfall by directly merging the lists based on their sorted order.",
+      "first_token_seconds": 0.15,
+      "total_seconds": 13.27,
+      "approx_tokens_per_second": 48.3
+    },
+    {
+      "category": "grounded",
+      "prompt_id": "rag-1",
+      "prompt": "Using ONLY this context, answer the question. Context: 'Store 41 closes at 9pm on weekdays and 7pm on Sundays. The pharmacy closes one hour before the store.' Question: When does the pharmacy at Store 41 close on Sunday? If the context doesn't say, say 'not in context.'",
+      "expected": "6pm, no invented details",
+      "output": " Based on the given context, the store closes at 7pm on Sundays. Since the pharmacy closes one hour before the store, it would close at 6pm on Sundays. Therefore, the pharmacy at Store 41 closes at 6pm on Sunday.",
+      "first_token_seconds": 0.22,
+      "total_seconds": 1.43,
+      "approx_tokens_per_second": 43.4
+    },
+    {
+      "category": "grounded",
+      "prompt_id": "rag-2",
+      "prompt": "Using ONLY this context, answer the question. Context: 'Returns are accepted within 30 days with a receipt. Electronics have a 15-day window.' Question: Can I return a jacket after 45 days? If the context doesn't say, say 'not in context.'",
+      "expected": "No (outside 30 days) OR states policy correctly; no invention",
+      "output": " Not in context. The provided context only mentions a 30-day return policy for general items with a receipt and a specific 15-day window for electronics. It does not provide information regarding the return period for a jacket or any other specific item.",
+      "first_token_seconds": 0.22,
+      "total_seconds": 1.31,
+      "approx_tokens_per_second": 42.7
+    },
+    {
+      "category": "ambiguity",
+      "prompt_id": "ambig-1",
+      "prompt": "I need to transfer everything from my old one to the new one before Friday. What should I do first?",
+      "expected": "Asks what 'one' refers to rather than assuming",
+      "output": " Transferring data from an old device to a new one is a multi-step process. Here's a general guide to help you get started, but remember to adjust the steps according to your specific devices and needs:\n\n1. **Backup Your Data:**\n   - **For Phones/Tablets:**\n     - Use built-in backup tools like iCloud for iOS devices or Google Drive for Android devices.\n     - Alternatively, use third-party apps like Samsung Smart Switch or Microsoft's EaseUS to back up your data.\n   - **For Laptops:**\n     - Back up your files using external storage devices like a USB flash drive or external hard drive.\n     - Use cloud services like Dropbox, Google Drive, or OneDrive.\n\n2. **Prepare Your New Device:**\n   - Install the necessary operating system and drivers.\n   - Set up Wi-Fi or Ethernet connection for transferring files.\n\n3. **Transfer Your Data:**\n   - **Using a Cable:**\n     - Connect your devices with a USB cable.\n     - Drag and drop files from the old device to the new one.\n   - **Using a Wireless Connection:**\n     - Use a wireless transfer app like SyncThing, AirDroid, or a similar service.\n   - **Using Cloud Services:**\n     - Upload files from the old device to the cloud.\n     - Download the files to the new device.\n\n4. **Set Up Your New Device:**\n   - Install necessary applications and updates.\n   - Restore your backed-up data to the new device.\n\n5. **Clean Up:**\n   - Remove any unnecessary files or apps from the old device.\n   - Format the old device if you no longer need it, or keep it for backup purposes.\n\n6. **Test Everything:**\n   - Ensure all your data is accessible and functioning correctly on the new device.\n\n7. **Dispose of the Old Device:**\n   - If it'thy no longer needed, recycle or donate it.\n\nHere are some additional tips:\n\n- **Timing:** Start the process early to avoid last-minute rush and potential data loss.\n- **Data Security:** Ensure your data is encrypted during transfer if sensitive information is involved.\n- **Software Compatibility:** Make sure your new device has the necessary software to run your applications.\n- **Battery Life:** Keep your devices charged during the transfer process.\n- **Network Security:** Use a secure and stable network connection to prevent data corruption or loss.\n\nRemember, the exact steps may vary depending on the devices and operating systems involved. If you're using a Mac, for example, you might use Migration Assistant, which is built into macOS. Always refer to the specific user manuals or support resources for your devices for the most accurate guidance.\n\nIf you encounter any issues during the transfer, consider reaching out to the device manufacturer's customer support for assistance. They can provide device-specific instructions and troubleshooting.\n\nGood luck with your transfer!",
+      "first_token_seconds": 0.08,
+      "total_seconds": 14.39,
+      "approx_tokens_per_second": 48.4
+    },
+    {
+      "category": "summarization",
+      "prompt_id": "long-1",
+      "prompt": "Write a 500-word explanation of how a grocery supply chain works, structured with an intro, three sections, and a conclusion.",
+      "expected": "Coherent structure, roughly 500 words, sustained quality",
+      "output": " Introduction:\n\nThe grocery supply chain is a complex network that ensures the availability of food products from farms to consumers' tables. It involves a series of interconnected processes, including production, processing, distribution, and retail. Understanding how this system operates is crucial for identifying areas of efficiency and sustainability. This article will explore the key components of the grocery supply chain, focusing on production, processing, and distribution, and conclude with the importance of this system for modern society.\n\nProduction:\n\nThe foundation of the grocery supply chain is agricultural production, where raw materials such as fruits, vegetables, grains, and livestock are grown and raised. Farmers play a vital role in this process, as they must manage their land, crops, and animals to ensure a steady supply of high-quality products. Modern farming techniques, including precision agriculture and sustainable practices, are increasingly being adopted to enhance productivity while minimizing environmental impact.\n\nOnce harvested, these products are often transported to processing facilities. Here, they undergo various transformations, such as cleaning, sorting, packaging, and sometimes further processing like freezing or canning. These steps are essential for preserving the freshness and extending the shelf life of the products, making them suitable for long-distance transportation.\n\nProcessing and Distribution:\n\nAfter processing, the products are ready for distribution. This phase involves transporting the goods from processing plants to warehouses, where they are stored until they are needed. Efficient warehousing and inventory management systems are crucial for maintaining the quality of the products and ensuring they are available when required.\n\nThe next step in the supply chain is the transportation of goods to retail outlets. This can be done through various modes, including road, rail, sea, and air. Each mode has its advantages and challenges, and the choice depends on factors such as distance, cost, and product type. For instance, perishable goods are often transported by air or refrigerated trucks to maintain freshness, while non-perishable items may be shipped by sea or rail for cost efficiency.\n\nRetail:\n\nFinally, the products reach the retail outlets, where consumers can purchase them. Supermarkets, grocery stores, and online platforms are common retail channels. These outlets must manage their inventory effectively, ensuring that popular products are always in stock while reducing waste due to unsold goods.\n\nConclusion:\n\nThe grocery supply chain is a complex and interconnected system that ensures the availability of food products for consumers. From production to retail, each step plays a crucial role in maintaining the quality and freshness of the products while minimizing waste and environmental impact. As the world population continues to grow, it is essential to continually improve the efficiency and sustainability of this system to meet the increasing demand for food. By understanding the workings of the grocery supply chain, we can identify opportunities for innovation and collaboration, ultimately leading to a more resilient and sustainable food system for future generations.",
+      "first_token_seconds": 0.15,
+      "total_seconds": 14.48,
+      "approx_tokens_per_second": 47.7
+    }
+  ]
+}

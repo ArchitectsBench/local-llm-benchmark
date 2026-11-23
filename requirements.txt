@@ -1,0 +1,2 @@
+foundry-local-sdk>=1.2
+openai>=1.60.0   # only for judge_eval.py

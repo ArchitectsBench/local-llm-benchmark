@@ -1,0 +1,57 @@
+{
+  "version": "1.0",
+  "categories": [
+    {
+      "id": "reasoning",
+      "name": "Multi-step reasoning",
+      "prompts": [
+        {"id": "reason-1", "prompt": "A bat and a ball cost $1.10 together. The bat costs $1.00 more than the ball. A second shop sells the same pair at 20% off the total. How much does the ball cost, and what do you pay at the second shop?", "expected": "Ball $0.05; second shop $0.88"},
+        {"id": "reason-2", "prompt": "A warehouse has 3 shifts. Shift A packs 120 boxes/hr for 8 hrs, Shift B packs 90 boxes/hr for 8 hrs, Shift C packs 150 boxes/hr for 6 hrs. Orders require 2,600 boxes/day. What is the daily surplus or shortfall?", "expected": "A=960, B=720, C=900, total 2580; shortfall of 20"}
+      ]
+    },
+    {
+      "id": "structured",
+      "name": "Structured output (JSON)",
+      "prompts": [
+        {"id": "json-1", "prompt": "Extract the following into strict JSON with keys vendor, invoice_no, date, line_items (array of {desc, qty, unit_price}), total. Respond with JSON only, no prose. Text: Invoice INV-2047 from Acme Tools, dated March 3, 2026. 4 drill bits at $12.50 each, 2 safety visors at $18 each. Total due: $86.", "expected": "Valid JSON; total 86; qty/prices exact; no extra text"}
+      ]
+    },
+    {
+      "id": "constraints",
+      "name": "Constraint adherence",
+      "prompts": [
+        {"id": "constr-1", "prompt": "Summarize retrieval-augmented generation in exactly 3 bullet points, each under 15 words, for a retail store manager with no AI background.", "expected": "Exactly 3 bullets, each <15 words, plain language"},
+        {"id": "constr-2", "prompt": "Answer in French only: what are the three primary colors? Do not use the word 'bleu'.", "expected": "French response naming the colors without using 'bleu'"}
+      ]
+    },
+    {
+      "id": "code",
+      "name": "Code generation",
+      "prompts": [
+        {"id": "code-1", "prompt": "Write a Python function that merges two sorted lists without using sort(). Then state its time complexity and one edge case that would break a naive implementation.", "expected": "Correct two-pointer merge; O(n+m); edge case like empty list or duplicates"}
+      ]
+    },
+    {
+      "id": "grounded",
+      "name": "Grounded QA (RAG pattern)",
+      "prompts": [
+        {"id": "rag-1", "prompt": "Using ONLY this context, answer the question. Context: 'Store 41 closes at 9pm on weekdays and 7pm on Sundays. The pharmacy closes one hour before the store.' Question: When does the pharmacy at Store 41 close on Sunday? If the context doesn't say, say 'not in context.'", "expected": "6pm, no invented details"},
+        {"id": "rag-2", "prompt": "Using ONLY this context, answer the question. Context: 'Returns are accepted within 30 days with a receipt. Electronics have a 15-day window.' Question: Can I return a jacket after 45 days? If the context doesn't say, say 'not in context.'", "expected": "No (outside 30 days) OR states policy correctly; no invention"}
+      ]
+    },
+    {
+      "id": "ambiguity",
+      "name": "Ambiguity handling",
+      "prompts": [
+        {"id": "ambig-1", "prompt": "I need to transfer everything from my old one to the new one before Friday. What should I do first?", "expected": "Asks what 'one' refers to rather than assuming"}
+      ]
+    },
+    {
+      "id": "summarization",
+      "name": "Long-form generation",
+      "prompts": [
+        {"id": "long-1", "prompt": "Write a 500-word explanation of how a grocery supply chain works, structured with an intro, three sections, and a conclusion.", "expected": "Coherent structure, roughly 500 words, sustained quality"}
+      ]
+    }
+  ]
+}
