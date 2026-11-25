@@ -14,6 +14,7 @@ No cloud account is needed for the chat app or the benchmark. After the first mo
 | `eval_prompts.json` | Ten prompts in seven categories, each with a note on the expected behaviour |
 | `judge_eval.py` | Optional quality scoring with an LLM judge (needs an Azure OpenAI deployment) |
 | `results/` | Raw result files from the recorded runs, including every model output |
+| `summarize_results.py` | Rebuilds the two results tables below from `results/`, and checks that this README still matches them |
 | `RUNBOOK_macOS.md` | Step-by-step setup on Apple Silicon, a GPU check, a reproduction checklist and a triage table |
 
 ## How the benchmark works
@@ -55,6 +56,15 @@ Average response time by category, in seconds:
 | Grounded answering | 2 | 1.4 | 11.6 | 1.1 |
 | Ambiguity handling | 1 | 14.4 | 17.2 | 18.0 |
 | Summarization | 1 | 14.5 | 40.1 | 19.8 |
+
+Both tables are generated from the files in `results/`. To rebuild them, or to confirm this page still matches the raw data:
+
+```bash
+python summarize_results.py            # print both tables
+python summarize_results.py --check    # exit 1 if this README has drifted
+```
+
+The check needs only the Python standard library, and it runs on every push.
 
 What the timings show:
 
