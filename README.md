@@ -1,5 +1,7 @@
 # Local LLM Benchmark
 
+[![Check results](https://github.com/ArchitectsBench/local-llm-benchmark/actions/workflows/check-results.yml/badge.svg)](https://github.com/ArchitectsBench/local-llm-benchmark/actions/workflows/check-results.yml)
+
 Run small language models fully on-device with [Foundry Local](https://learn.microsoft.com/en-us/azure/foundry-local/get-started), then measure them: load time, time to first token, response time and throughput across seven kinds of task.
 
 No cloud account is needed for the chat app or the benchmark. After the first model download, everything works with Wi-Fi off.
